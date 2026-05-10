@@ -1,17 +1,31 @@
 package pl.wsb.fitnesstracker.user.api;
 
 /**
- * Interface (API) for modifying operations on {@link User} entities through the API.
- * Implementing classes are responsible for executing changes within a database transaction, whether by continuing an existing transaction or creating a new one if required.
+ * Interfejs definiujący operacje zapisu i modyfikacji dla encji {@link User}.
  */
 public interface UserService {
 
     /**
-     * Creates a new user.
+     * Tworzy nowego użytkownika.
      *
-     * @param user The user to be created
-     * @return The created user
+     * @param user użytkownik do utworzenia
+     * @return utworzony użytkownik z przypisanym ID
      */
     User createUser(User user);
 
+    /**
+     * Usuwa użytkownika o podanym ID.
+     *
+     * @param userId identyfikator użytkownika do usunięcia
+     */
+    void deleteUser(Long userId);
+
+    /**
+     * Aktualizuje dane użytkownika o podanym ID.
+     *
+     * @param userId  identyfikator użytkownika
+     * @param userDto nowe dane użytkownika
+     * @return zaktualizowany użytkownik
+     */
+    User updateUser(Long userId, UserDto userDto);
 }

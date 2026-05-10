@@ -9,6 +9,9 @@ import lombok.ToString;
 
 import java.time.LocalDate;
 
+/**
+ * Encja reprezentująca użytkownika systemu FitnessTracker.
+ */
 @Entity
 @Table(name = "users")
 @Getter
@@ -44,4 +47,18 @@ public class User {
         this.email = email;
     }
 
+    /**
+     * Aktualizuje dane użytkownika.
+     *
+     * @param firstName imię
+     * @param lastName  nazwisko
+     * @param birthdate data urodzenia
+     * @param email     adres e-mail
+     */
+    public void update(String firstName, String lastName, LocalDate birthdate, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthdate = birthdate;
+        this.email = email;
+    }
 }
